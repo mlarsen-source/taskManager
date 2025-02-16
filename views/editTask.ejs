@@ -18,5 +18,46 @@
     </ul>
   </nav>
   <h1>Edit Task Page </h1>
+
+  <! need to figure out a way to display search form on initial page visit and then display the tasks from the searchList object after clicking search button -->
+  
+  <form id="form" action="searchTask" method="post" >
+    <h2>Search Task</h2>
+    <label>By Task Title: <input type="text" id="title" name="title"></label>
+    <label>By Start Date: <input type="date" id="startDate" name="startDate"></label>
+    <label>By End Date: <input type="date" id="endDate" name="endDate"></label>
+    <label>By Date Created: <input type="date" id="created" name="created"></label>
+    <label>By Location: <input type="text" id="location" name="location"></label>
+    <label>By Task Type:
+      <select id="type" name="type" title="Please select a type"> 
+        <option value="">Please select</option>
+        <option value="Work">Work</option>
+        <option value="School">School</option>
+        <option value="Personal">Personal</option>
+        <option value="Financial">Financial</option>
+        <option value="Health">Health</option>
+        <option value="Travel">Travel</option>
+      </select>
+    </label>
+    <label>By Task Priority:
+      <select id="type" name="type" title="Please select a type"> 
+        <option value="">Please select</option>
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+        <option value="Low">Low</option>
+      </select>
+    </label>
+    <label>By Task Status:
+      <select id="status" name="status" title="Please select a status"> 
+        <option value="">Please select</option>
+        <option value="Not Started">Not Started</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Overdue">Overdue</option>
+        <option value="Completed">Completed</option>
+        <option value="Canceled">Cancelled</option>
+      </select>
+    </label>
+    <input id="button" type="submit" value="Search"> 
+  </form>
 </body>
 </html>

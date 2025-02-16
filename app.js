@@ -20,7 +20,7 @@ app.set('view engine', 'ejs');
 // default route 
 app.get('/',(req, res)=>
 {
-  res.render('home');
+  res.render('home',{taskList});
 });
 
 
@@ -60,7 +60,7 @@ app.post('/createTask', (req, res) =>
     description: req.body.description,
     priority: req.body.priority,
     type: req.body.type,
-    status: "In Progress",
+    status: "Not Started",
     view: true,
     created: new Date()
   };
@@ -76,6 +76,36 @@ app.post('/createTask', (req, res) =>
     
   // send viewTask page with newly created task to user
   res.render('viewTask', { task });
+});
+
+// post route to handle searchTask form submission
+app.post('/searchTask', (req, res) =>
+{
+  // create new searchList array
+  const searchList = [];
+  
+  // create new search object 
+  const searchtask = 
+  {
+    title: req.body.title,
+    startDate: req.body.startDate,
+    endDate: req.body.endDate,
+    created: req.body.created,
+    location: req.body.location,
+    priority: req.body.priority,
+    type: req.body.type,
+    status: req.body.status
+  };
+  
+  // log search object to console for testing/validation
+  console.log(searchtask);
+      
+  // need to add logic to find matching tasks in taskList and add them to searchList
+      
+  
+    
+  // send editTask page with newly created searchList to user
+  res.render('editTask', { searchList });
 });
 
 

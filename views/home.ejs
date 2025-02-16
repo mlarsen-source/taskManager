@@ -18,5 +18,54 @@
     </ul>
   </nav>
   <h1>Home Page</h1>
+  <main>
+    <h2>Task List</h2>
+    <div id="taskTable">
+      <% 
+        // Filter tasks where "view" is set to true
+        const visibleTasks = taskList.filter(task => task.view); 
+      %>
+      <% if (visibleTasks.length > 0) { %>
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Start Date</th>
+              <th>Start Time</th>
+              <th>End Date</th>
+              <th>End Time</th>
+              <th>Location</th>
+              <th>Description</th>
+              <th>Priority</th>
+              <th>Type</th>
+              <th>Status</th>
+              <th>Created</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% visibleTasks.forEach(task => { %>
+              <tr>
+                <td><%= task.title %></td>
+                <td><%= task.startDate %></td>
+                <td><%= task.startTime %></td>
+                <td><%= task.endDate %></td>
+                <td><%= task.endTime %></td>
+                <td><%= task.location %></td>
+                <td><%= task.description %></td>
+                <td><%= task.priority %></td>
+                <td><%= task.type %></td>
+                <td><%= task.status %></td>
+                <td><%= task.created %></td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      <% } else { %>
+        <div>
+          <h3>No Tasks to Display</h3>
+        </div>
+      <% } %>
+    </div>
+</main>
 </body>
 </html>
