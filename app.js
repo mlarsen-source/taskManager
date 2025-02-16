@@ -22,7 +22,7 @@ app.get('/',(req, res)=>
 
 
 // viewTask route
-app.get('/viewTask', (req, res) =>
+app.post('/viewTask', (req, res) =>
 {
   res.render('viewTask');
 });
