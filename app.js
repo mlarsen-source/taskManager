@@ -4,6 +4,9 @@ import express from 'express';
 // instantiate an express application
 const app = express();
 
+// instantiate an array to store form submissions
+const taskList = [];
+
 // serve static files from the 'public' directory
 app.use(express.static('public'));
 
@@ -22,7 +25,7 @@ app.get('/',(req, res)=>
 
 
 // viewTask route
-app.post('/viewTask', (req, res) =>
+app.get('/viewTask', (req, res) =>
 {
   res.render('viewTask');
 });
@@ -40,6 +43,41 @@ app.get('/editTask', (req, res) =>
 {
   res.render('editTask');
 });
+
+
+// post route to handle addTask form submission
+app.post('/createTask', (req, res) =>
+{
+  // create new task object 
+  const task = 
+  {
+    title: req.body.title,
+    startDate: req.body.startDate,
+    startTime: req.body.startDate,
+    endDate: req.body.endDate,
+    endTime: req.body.endTime,
+    location: req.body.location,
+    description: req.body.description,
+    priority: req.body.priority,
+    type: req.body.type,
+    status: "In Progress",
+    view: true,
+    created: new Date()
+  };
+  
+  // log task to console for testing/validation
+  console.log(task);
+      
+  // Save task object to the taskList array
+  taskList.push(task)
+      
+  // Log the contactList array to the console for testing/validation
+  console.log(req.body);
+    
+  // send viewTask page with newly created task to user
+  res.render('viewTask', { task });
+});
+
 
 
 // tell the server to listen on port 3000

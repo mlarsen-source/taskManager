@@ -18,11 +18,13 @@
     </ul>
   </nav>
   <h1>Add Task Page </h1>
-  <form id="form" action="viewTask" method="post" >
+  <form id="form" action="createTask" method="post" >
     <h2>Add New Task</h2>
     <label>Task Title: <input type="text" id="title" name="title"></label>
-    <label>Start: <input type="date" id="start" name="start"></label>
-    <label>End: <input type="date" id="end" name="end"></label>
+    <label>Start Date: <input type="date" id="startDate" name="startDate"></label>
+    <label>Start Time: <input type="time" id="startTime" name="startTime"></label>
+    <label>End Date: <input type="date" id="endDate" name="endDate"></label>
+    <label>End Time: <input type="time" id="endTime" name="endTime"></label>
     <label>Location: <input type="text" id="location" name="location"></label>
     <label>Description: <textarea id="description" name="description"></textarea></label>
     <label>Priority:</label>
