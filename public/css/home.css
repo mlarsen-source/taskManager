@@ -1,1 +1,76 @@
 /* css for home page */
+.task-list-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-list {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+  border-radius: 5px;
+  position: relative;
+  transition: 250ms;
+  cursor: pointer;
+}
+
+.card-list::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 95%;
+  height: 1px;
+  background: rgb(162, 162, 162);
+  transform: translateX(-50%);
+}
+
+.card-list:hover {
+  background-color: rgb(226, 226, 226);
+}
+
+.card-list-item {
+  margin: 0;
+
+  padding: 7px;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.card-list-item.title {
+  font-size: 18px;
+  font-weight: 600;
+}
+.card-list-item.low {
+  background-color: greenyellow;
+}
+.card-list-item.med {
+  background-color: orange;
+}
+.card-list-item.high {
+  background-color: red;
+}
+.card-list-item.work {
+  background-color: #ffcccb;
+}
+
+.card-list-item.school {
+  background-color: #add8e6;
+}
+
+.card-list-item.personal {
+  background-color: #90ee90;
+}
+
+.card-list-item.financial {
+  background-color: #f4c542;
+}
+
+.card-list-item.health {
+  background-color: #ffb6c1;
+}
+
+.card-list-item.travel {
+  background-color: #dda0dd;
+}

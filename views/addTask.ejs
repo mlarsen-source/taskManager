@@ -1,48 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/default.css">
-  <link rel="stylesheet" href="/css/add.css">
-  <link rel="icon" type="image/png" href="/images/add.png" />
-  <title>Add Task</title>
-</head>
-<body>
-  <nav>
-    <ul id="navigation">
-      <li><a href='/'>Home</a></li>
-      <li><a href='viewTask'>View Task</a></li>
-      <li><a href='addTask'>Add Task</a></li>
-      <li><a href='editTask'>Edit Task</a></li>
-    </ul>
-  </nav>
-  <h1>Add Task Page </h1>
-  <form id="form" action="createTask" method="post" >
-    <h2>Add New Task</h2>
-    <label>Task Title: <input type="text" id="title" name="title"></label>
-    <label>Start Date: <input type="date" id="startDate" name="startDate"></label>
-    <label>Start Time: <input type="time" id="startTime" name="startTime"></label>
-    <label>End Date: <input type="date" id="endDate" name="endDate"></label>
-    <label>End Time: <input type="time" id="endTime" name="endTime"></label>
-    <label>Location: <input type="text" id="location" name="location"></label>
-    <label>Description: <textarea id="description" name="description"></textarea></label>
-    <label>Priority:</label>
-    <label><input type="radio" name="priority" value="High">High</label>
-    <label><input type="radio" name="priority" value="Medium">Medium</label>
-    <label><input type="radio" name="priority" value="Low">Low</label><br>
-    <label>Task Type:
-      <select id="type" name="type" title="Please select a type"> 
-        <option value="General">Please select</option>
-        <option value="Work">Work</option>
-        <option value="School">School</option>
-        <option value="Personal">Personal</option>
-        <option value="Financial">Financial</option>
-        <option value="Health">Health</option>
-        <option value="Travel">Travel</option>
-      </select>
-    </label>
-    <input id="button" type="submit" value="Add"> 
-  </form>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/default.css" />
+    <link rel="stylesheet" href="/css/add.css" />
+    <link rel="icon" type="image/png" href="/images/add.png" />
+    <title>Add Task</title>
+  </head>
+  <body>
+    <nav>
+      <ul id="navigation">
+        <li><a href="/">Home</a></li>
+        <li><a href="viewTask">View Task</a></li>
+        <li><a href="addTask">Add Task</a></li>
+        <li><a href="editTask">Edit Task</a></li>
+      </ul>
+    </nav>
+    <div class="card-container">
+      <h1>Add Task Page</h1>
+      <form id="form" action="createTask" method="post">
+        <h2>Add New Task</h2>
+        <label>Task Title: <input type="text" id="title" name="title" /></label>
+        <label
+          >Start Date: <input type="date" id="startDate" name="startDate"
+        /></label>
+        <label
+          >Start Time: <input type="time" id="startTime" name="startTime"
+        /></label>
+        <label
+          >End Date: <input type="date" id="endDate" name="endDate"
+        /></label>
+        <label
+          >End Time: <input type="time" id="endTime" name="endTime"
+        /></label>
+        <label
+          >Location: <input type="text" id="location" name="location"
+        /></label>
+        <label
+          >Description:
+          <textarea id="description" name="description"></textarea>
+        </label>
+        <label>Priority:</label>
+        <label><input type="radio" name="priority" value="High" />High</label>
+        <label
+          ><input type="radio" name="priority" value="Medium" />Medium</label
+        >
+        <label><input type="radio" name="priority" value="Low" />Low</label
+        ><br />
+        <label
+          >Task Type:
+          <select id="type" name="type" title="Please select a type">
+            <option value="general">Please select</option>
+            <option value="work">Work</option>
+            <option value="school">School</option>
+            <option value="personal">Personal</option>
+            <option value="financial">Financial</option>
+            <option value="health">Health</option>
+            <option value="travel">Travel</option>
+          </select>
+        </label>
+        <input id="button" type="submit" value="Add" />
+      </form>
+    </div>
+  </body>
 </html>

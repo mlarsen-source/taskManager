@@ -1,71 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/default.css">
-  <link rel="stylesheet" href="/css/home.css">
-  <link rel="icon" type="image/png" href="/images/home.png" />
-  <title>Task Manager</title>
-</head>
-<body>
-  <nav>
-    <ul id="navigation">
-      <li><a href='/'>Home</a></li>
-      <li><a href='viewTask'>View Task</a></li>
-      <li><a href='addTask'>Add Task</a></li>
-      <li><a href='editTask'>Edit Task</a></li>
-    </ul>
-  </nav>
-  <h1>Home Page</h1>
-  <main>
-    <h2>Task List</h2>
-    <div id="taskTable">
-      <% 
-        // Filter tasks where "view" is set to true
-        const visibleTasks = taskList.filter(task => task.view); 
-      %>
-      <% if (visibleTasks.length > 0) { %>
-        <table>
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Start Date</th>
-              <th>Start Time</th>
-              <th>End Date</th>
-              <th>End Time</th>
-              <th>Location</th>
-              <th>Description</th>
-              <th>Priority</th>
-              <th>Type</th>
-              <th>Status</th>
-              <th>Created</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% visibleTasks.forEach(task => { %>
-              <tr>
-                <td><%= task.title %></td>
-                <td><%= task.startDate %></td>
-                <td><%= task.startTime %></td>
-                <td><%= task.endDate %></td>
-                <td><%= task.endTime %></td>
-                <td><%= task.location %></td>
-                <td><%= task.description %></td>
-                <td><%= task.priority %></td>
-                <td><%= task.type %></td>
-                <td><%= task.status %></td>
-                <td><%= task.created %></td>
-              </tr>
-            <% }) %>
-          </tbody>
-        </table>
-      <% } else { %>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/default.css" />
+    <link rel="stylesheet" href="/css/home.css" />
+    <link rel="icon" type="image/png" href="/images/home.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <title>Task Manager</title>
+  </head>
+  <body>
+    <nav>
+      <ul id="navigation">
+        <li><a href="/">Home</a></li>
+        <li><a href="viewTask">View Task</a></li>
+        <li><a href="addTask">Add Task</a></li>
+        <li><a href="editTask">Edit Task</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <div class="card-container">
+        <h1 class="card-header">Task Manager</h1>
         <div>
-          <h3>No Tasks to Display</h3>
+          <h3>Task's</h3>
+          <i class="bi bi-clipboard2-plus"></i>
         </div>
-      <% } %>
-    </div>
-</main>
-</body>
+
+        <div class="task-list-container">
+          <!-- Filter tasks where "view" is set to true  -->
+          <div class="card-list">
+            <span class="card-list-item low"></span>
+            <p class="card-list-item title">Finish sdev305 final</p>
+          </div>
+          <div class="card-list">
+            <span class="card-list-item med"></span>
+            <p class="card-list-item title">Take out trash</p>
+          </div>
+          <div class="card-list">
+            <span class="card-list-item high"></span>
+            <p class="card-list-item title">Cancel montana flight</p>
+          </div>
+          <div class="card-list">
+            <span class="card-list-item med"></span>
+            <p class="card-list-item title">Taxes</p>
+          </div>
+          <div class="card-list">
+            <span class="card-list-item low"></span>
+            <p class="card-list-item title">Workout</p>
+          </div>
+          <div class="card-list">
+            <span class="card-list-item med"></span>
+            <p class="card-list-item title">Clean garage</p>
+          </div>
+          <div class="card-list">
+            <span class="card-list-item med"></span>
+            <p class="card-list-item title">Clean garage</p>
+          </div>
+          <div class="card-list">
+            <span class="card-list-item med"></span>
+            <p class="card-list-item title">Clean garage</p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
 </html>
