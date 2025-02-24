@@ -33,3 +33,9 @@ body {
 .card-header {
   margin: 0;
 }
+
+.card-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}

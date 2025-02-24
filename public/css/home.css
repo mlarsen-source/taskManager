@@ -1,7 +1,12 @@
 /* css for home page */
+
 .task-list-container {
   display: flex;
   flex-direction: column;
+  height: 364px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 10px;
 }
 
 .card-list {
@@ -28,6 +33,10 @@
 
 .card-list:hover {
   background-color: rgb(226, 226, 226);
+}
+
+.bi {
+  font-size: 30px;
 }
 
 .card-list-item {
