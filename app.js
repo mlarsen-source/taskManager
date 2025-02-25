@@ -8,6 +8,9 @@ const app = express();
 // instantiate an array to store form submissions
 const taskList = [];
 
+// instantiate counter for task numbers
+let taskCounter = 1;
+
 // serve static files from the 'public' directory
 app.use(express.static("public"));
 
@@ -22,10 +25,6 @@ app.get("/", (req, res) => {
   res.render("home", { taskList });
 });
 
-// viewTask route
-app.get("/viewTask", (req, res) => {
-  res.render("viewTask");
-});
 
 // addTask route
 app.get("/addTask", (req, res) => {
@@ -41,9 +40,10 @@ app.get("/editTask", (req, res) => {
 app.post("/createTask", (req, res) => {
   // create new task object
   const task = {
+    taskId: taskCounter,
     title: req.body.title,
     startDate: req.body.startDate,
-    startTime: req.body.startDate,
+    startTime: req.body.startTime,
     endDate: req.body.endDate,
     endTime: req.body.endTime,
     location: req.body.location,
@@ -55,6 +55,11 @@ app.post("/createTask", (req, res) => {
     created: new Date(),
   };
 
+  
+  // increment taskCounter variable;
+  taskCounter++;
+ 
+
   // log task to console for testing/validation
   console.log(task);
 
@@ -64,35 +69,20 @@ app.post("/createTask", (req, res) => {
   // Log the contactList array to the console for testing/validation
   console.log(req.body);
 
-  // send viewTask page with newly created task to user
+  // send home page with tasklist
+  res.render("home", { taskList });
+});
+
+
+// viewTask route with route parameter to capture taskID from URL and render specific task details on view.ejs page
+app.get("/viewTask/:taskId", (req, res) => {
+  const taskId = parseInt(req.params.taskId, 10);
+  const task = taskList.find((t) => t.taskId === taskId);
+
   res.render("viewTask", { task });
+  
 });
 
-// post route to handle searchTask form submission
-app.post("/searchTask", (req, res) => {
-  // create new searchList array
-  const searchList = [];
-
-  // create new search object
-  const searchtask = {
-    title: req.body.title,
-    startDate: req.body.startDate,
-    endDate: req.body.endDate,
-    created: req.body.created,
-    location: req.body.location,
-    priority: req.body.priority,
-    type: req.body.type,
-    status: req.body.status,
-  };
-
-  // log search object to console for testing/validation
-  console.log(searchtask);
-
-  // need to add logic to find matching tasks in taskList and add them to searchList
-
-  // send editTask page with newly created searchList to user
-  res.render("editTask", { searchList });
-});
 
 // tell the server to listen on port 3000
 app.listen(3000, () => {

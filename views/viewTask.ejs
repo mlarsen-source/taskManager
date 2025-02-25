@@ -12,11 +12,22 @@
     <nav>
       <ul id="navigation">
         <li><a href="/">Home</a></li>
-        <li><a href="viewTask">View Task</a></li>
-        <li><a href="addTask">Add Task</a></li>
         <li><a href="editTask">Edit Task</a></li>
       </ul>
     </nav>
-    <div class="card-container"><h1>View Task Page</h1></div>
+    <div class="card-container">
+      <h1>Task Details:</h1>
+      
+      <h2><%= task.title %></h2>
+      <p>Status: <%= task.status %></p>
+      <p>Priority: <%= task.priority %></p>
+      <p>Type: <%= task.type %></p>
+      <p>Location: <%= task.location %></p>
+      <p>Description: <%= task.description %></p>
+      <p>Start: <%= task.startDate %> at <%= task.startTime %></p>
+      <p>End: <%= task.endDate %> at <%= task.endTime %></p>
+      <p>Created: <%= task.created.toDateString() %></p>
+    
+      <a href="/">Back to Task List</a>
   </body>
 </html>

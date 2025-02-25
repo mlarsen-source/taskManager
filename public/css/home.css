@@ -38,11 +38,25 @@
 .bi {
   font-size: 30px;
   cursor: pointer;
+  color: #494949;
+}
+
+.b1:visited {
+  color: #494949;
+  text-decoration: none; 
+}
+
+.card-link {
+  color: #494949;
+  text-decoration: none; 
+}
+.card-link:visited {
+  color: #494949;
+  text-decoration: none; 
 }
 
 .card-list-item {
   margin: 0;
-
   padding: 7px;
   border-radius: 5px;
   font-weight: 600;
@@ -52,6 +66,7 @@
   font-size: 18px;
   font-weight: 600;
 }
+
 .card-list-item.low {
   background-color: greenyellow;
 }
