@@ -19,48 +19,47 @@
     </nav>
     <div class="card-container">
       <h1>Add Task Page</h1>
-      <form id="form" action="createTask" method="post">
+      <form id="create-task" action="createTask" method="post">
         <h2>Add New Task</h2>
-        <label>Task Title: <input type="text" id="title" name="title" /></label>
-        <label
-          >Start Date: <input type="date" id="startDate" name="startDate"
-        /></label>
-        <label
-          >Start Time: <input type="time" id="startTime" name="startTime"
-        /></label>
-        <label
-          >End Date: <input type="date" id="endDate" name="endDate"
-        /></label>
-        <label
-          >End Time: <input type="time" id="endTime" name="endTime"
-        /></label>
-        <label
-          >Location: <input type="text" id="location" name="location"
-        /></label>
-        <label
-          >Description:
-          <textarea id="description" name="description"></textarea>
-        </label>
-        <label>Priority:</label>
-        <label><input type="radio" name="priority" value="High" />High</label>
-        <label
-          ><input type="radio" name="priority" value="Medium" />Medium</label
-        >
-        <label><input type="radio" name="priority" value="Low" />Low</label
-        ><br />
-        <label
-          >Task Type:
-          <select id="type" name="type" title="Please select a type">
-            <option value="general">Please select</option>
-            <option value="work">Work</option>
-            <option value="school">School</option>
-            <option value="personal">Personal</option>
-            <option value="financial">Financial</option>
-            <option value="health">Health</option>
-            <option value="travel">Travel</option>
-          </select>
-        </label>
-        <input id="button" type="submit" value="Add" />
+
+        <div>
+          <label>
+            Task Title: <input type="text" id="title" name="title" />
+          </label>
+        </div>
+        <div>
+          <label>
+            Description:
+            <textarea id="description" name="description"></textarea>
+          </label>
+        </div>
+
+        <div>
+          <label>Priority:</label>
+          <label><input type="radio" name="priority" value="High" />Low</label>
+          <label
+            ><input type="radio" name="priority" value="Medium" />Medium</label
+          >
+          <label><input type="radio" name="priority" value="Low" />High</label>
+        </div>
+        <div>
+          <label>
+            Task Type:
+            <select id="type" name="type" title="Please select a type">
+              <option value="general">Please select</option>
+              <option value="work">Work</option>
+              <option value="school">School</option>
+              <option value="personal">Personal</option>
+              <option value="financial">Financial</option>
+              <option value="health">Health</option>
+              <option value="travel">Travel</option>
+            </select>
+          </label>
+        </div>
+
+        <div>
+          <input id="button" type="submit" value="Add" />
+        </div>
       </form>
     </div>
   </body>

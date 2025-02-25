@@ -1,1 +1,6 @@
 /* css for add task page */
+
+#create-task {
+  display: flex;
+  flex-direction: column;
+}

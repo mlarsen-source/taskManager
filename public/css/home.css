@@ -37,6 +37,7 @@
 
 .bi {
   font-size: 30px;
+  cursor: pointer;
 }
 
 .card-list-item {

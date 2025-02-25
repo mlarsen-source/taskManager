@@ -1,8 +1,5 @@
 /* common/default css for all task manager site pages */
 
-/* bootstrap-icons import */
-@import "node_modules/bootstrap-icons/font/bootstrap-icons.css";
-
 body {
   margin: 0;
   padding: 0;
