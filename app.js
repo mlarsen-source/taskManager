@@ -20,23 +20,19 @@ app.use(express.urlencoded({ extended: true }));
 //set the view engine
 app.set("view engine", "ejs");
 
+
 // default route
 app.get("/", (req, res) => {
   res.render("home", { taskList });
 });
 
-
 // addTask route
 app.get("/addTask", (req, res) => {
-  res.render("addTask");
+  res.render("addtask");
 });
 
-// editTask route
-app.get("/editTask", (req, res) => {
-  res.render("editTask");
-});
 
-// post route to handle addTask form submission
+// createTask route to handle addTask form submission
 app.post("/createTask", (req, res) => {
   // create new task object
   const task = {
@@ -55,11 +51,9 @@ app.post("/createTask", (req, res) => {
     created: new Date(),
   };
 
-  
   // increment taskCounter variable;
   taskCounter++;
  
-
   // log task to console for testing/validation
   console.log(task);
 
@@ -74,7 +68,8 @@ app.post("/createTask", (req, res) => {
 });
 
 
-// viewTask route with route parameter to capture taskID from URL and render specific task details on view.ejs page
+
+// viewTask route to render specific task details on view.ejs page
 app.get("/viewTask/:taskId", (req, res) => {
   const taskId = parseInt(req.params.taskId, 10);
   const task = taskList.find((t) => t.taskId === taskId);
@@ -82,6 +77,37 @@ app.get("/viewTask/:taskId", (req, res) => {
   res.render("viewTask", { task });
   
 });
+
+// editTask route to display edit task form for a specific task
+app.get("/editTask/:taskId", (req, res) => {
+  const taskId = parseInt(req.params.taskId, 10);
+  const task = taskList.find((t) => t.taskId === taskId);
+
+  res.render("editTask", { task });
+ 
+});
+
+// updateTask route to handle task updates
+app.post("/updateTask/:taskId", (req, res) => {
+  const taskId = parseInt(req.params.taskId, 10);
+  const task = taskList.find((t) => t.taskId === taskId);
+
+  task.title = req.body.title;
+  task.startDate = req.body.startDate;
+  task.startTime = req.body.startTime;
+  task.endDate = req.body.endDate;
+  task.endTime = req.body.endTime;
+  task.location = req.body.location;
+  task.description = req.body.description;
+  task.priority = req.body.priority;
+  task.type = req.body.type;
+  task.status = req.body.status;
+
+  // redirect back to the updated task details page
+  res.redirect(`/viewTask/${taskId}`);
+  
+});
+
 
 
 // tell the server to listen on port 3000

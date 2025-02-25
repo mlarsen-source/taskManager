@@ -4,3 +4,14 @@
   display: flex;
   flex-direction: column;
 }
+
+.bi {
+  font-size: 30px;
+  cursor: pointer;
+  color: #494949;
+}
+
+.b1:visited {
+  color: #494949;
+  text-decoration: none; 
+}
