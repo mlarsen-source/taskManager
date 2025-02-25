@@ -6,8 +6,8 @@ body {
   font-family: "Open Sans", Arial, Helvetica, sans-serif;
   font-size: 16px;
   line-height: 1.6;
-  background-color: rgb(244, 250, 255);
-  color: #494949;
+  background-color: rgb(216, 216, 216);
+  color: #404040;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -16,12 +16,15 @@ body {
 }
 
 .card-container {
-  background-color: #f1f1f1;
-  border-radius: 5px;
-  padding: 25px;
+  background-color: #ececec;
+  border-radius: 7px;
+  padding: 40px 40px 60px 40px;
   margin: 10px;
-  height: 600px;
   width: 450px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-sizing: border-box;
   text-align: center;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
   transition: box-shadow 0.3s ease-in-out;
@@ -34,5 +37,77 @@ body {
 .card-nav {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+.form-sub-container {
+  width: 100%;
+  text-align: start;
+}
+
+.form-title {
+  font-size: 20px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.form-input {
+  font-size: 20px;
+  margin: 5px 0;
+  width: 100%;
+  padding: 5px 0;
+  border-radius: 7px;
+  border: 1px lightgray solid;
+  outline: none;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+.form-input:focus {
+  margin: 5px 0;
+  padding: 5px 0;
+  border-radius: 7px;
+  border: 2px solid #94bfff;
+  outline: none;
+}
+
+.form-input-text {
+  height: 50px;
+  resize: vertical;
+}
+
+.form-btn-container {
+  float: right;
+  margin: 20px 0;
+}
+
+.submit-btn {
+  background-color: #0d6efd;
+  border-radius: 7px;
+  border-style: none;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  margin: 0;
+  padding: 10px 30px;
+  transition: 500ms;
+}
+
+.submit-btn:hover,
+.submit-btn:focus {
+  background-color: #609fff;
+}
+
+.bi {
+  font-size: 30px;
+  cursor: pointer;
+  color: #494949;
 }

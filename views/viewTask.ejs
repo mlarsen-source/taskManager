@@ -13,11 +13,11 @@
     <div class="card-container">
       <div class="card-nav">
         <a href="/"><i class="bi bi-house-door"></i></a>
-        <h1 class="card-header">View Task Details</h1>
+        <h1 class="card-header"><%= task.title %></h1>
         <a href="/editTask/<%= task.taskId %>"><i class="bi bi-pencil-square"></i></a>
       </div>
       
-      <h2><%= task.title %></h2>
+      
       <p>Status: <%= task.status %></p>
       <p>Priority: <%= task.priority %></p>
       <p>Type: <%= task.type %></p>

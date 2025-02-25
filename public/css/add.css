@@ -1,10 +1,5 @@
 /* css for add task page */
 
-#create-task {
-  display: flex;
-  flex-direction: column;
-}
-
 .bi {
   font-size: 30px;
   cursor: pointer;
@@ -13,5 +8,5 @@
 
 .b1:visited {
   color: #494949;
-  text-decoration: none; 
+  text-decoration: none;
 }

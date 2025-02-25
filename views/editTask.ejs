@@ -10,54 +10,78 @@
     <title>Edit Task Page</title>
   </head>
   <body>
-   <div class="card-container">
+    <div class="card-container">
       <div class="card-nav">
         <a href="/"><i class="bi bi-house-door"></i></a>
-        <h1 class="card-header">Edit Task Page</h1>
+        <h1 class="card-header">Edit Task</h1>
         <a href="/viewTask/<%= task.taskId %>"><i class="bi bi-x-square"></i></a>
-      </div><h1>Edit Task</h1>
+      </div>
+
 
       <form action="/updateTask/<%= task.taskId %>" method="POST">
-        <label>Title:</label>
-        <input type="text" name="title" value="<%= task.title %>"><br>
-    
-        <label>Start Date:</label>
-        <input type="date" name="startDate" value="<%= task.startDate %>"><br>
-    
-        <label>Start Time:</label>
-        <input type="time" name="startTime" value="<%= task.startTime %>"><br>
-    
-        <label>End Date:</label>
-        <input type="date" name="endDate" value="<%= task.endDate %>"><br>
-    
-        <label>End Time:</label>
-        <input type="time" name="endTime" value="<%= task.endTime %>"><br>
-    
-        <label>Location:</label>
-        <input type="text" name="location" value="<%= task.location %>"><br>
+        <div class="form-sub-container">
+          <label class="form-title" for="title">Title</label>
+          <input class="form-input" type="text" id="title" name="title" value="<%= task.title %>" class="form-control" required>
+        </div>
+      
+        <div class="form-sub-container">
+          <label class="form-title" for="startDate">Start Date</label>
+          <input class="form-input" type="date" id="startDate" name="startDate" value="<%= task.startDate %>" class="form-control" required>
+        </div>
+      
+        <div class="form-sub-container">
+          <label class="form-title" for="startTime">Start Time</label>
+          <input class="form-input" type="time" id="startTime" name="startTime" value="<%= task.startTime %>" class="form-control" required>
+        </div>
+      
+        <div class="form-sub-container">
+          <label class="form-title" for="endDate">End Date</label>
+          <input class="form-input" type="date" id="endDate" name="endDate" value="<%= task.endDate %>" class="form-control" required>
+        </div>
+      
+        <div class="form-sub-container">
+          <label class="form-title" for="endTime">End Time</label>
+          <input class="form-input" type="time" id="endTime" name="endTime" value="<%= task.endTime %>" class="form-control" required>
+        </div>
+      
+        <div class="form-sub-container">
+          <label class="form-title" for="location">Location</label>
+          <input class="form-input" type="text" id="location" name="location" value="<%= task.location %>" class="form-control" required>
+        </div>
+      
+        <div class="form-sub-container">
+          <label class="form-title " for="description">Description</label>
+          <textarea class="form-input form-input-text" id="description" name="description" class="form-control" required><%= task.description %></textarea>
+        </div>
+      
+        <div class="form-sub-container">
+          <label class="form-title" for="priority">Priority</label>
+          <select class="form-input" name="priority" id="priority" class="form-control" required>
+            <option value="low" <%= task.priority === "low" ? "selected" : "" %>>Low</option>
+            <option value="med" <%= task.priority === "med" ? "selected" : "" %>>Medium</option>
+            <option value="high" <%= task.priority === "high" ? "selected" : "" %>>High</option>
+          </select>
+        </div>
+      
+        <div class="form-sub-container">
+          <label class="form-title" for="type">Type</label>
+          <input class="form-input" type="text" id="type" name="type" value="<%= task.type %>" class="form-control" required>
+        </div>
+      
+        <div class="form-sub-container">
+          <label class="form-title" for="status">Status</label>
+          <select class="form-input" name="status" id="status" class="form-control" required>
+            <option value="Not Started" <%= task.status === "Not Started" ? "selected" : "" %>>Not Started</option>
+            <option value="In Progress" <%= task.status === "In Progress" ? "selected" : "" %>>In Progress</option>
+            <option value="Completed" <%= task.status === "Completed" ? "selected" : "" %>>Completed</option>
+          </select>
+        </div>
+        <div class="form-btn-container">
+          <button type="submit" class="submit-btn">Update Task</button>
+        </div>
         
-        <label>Description:</label>
-        <textarea name="description"><%= task.description %></textarea><br>
-    
-        <label>Priority:</label>
-        <select name="priority">
-          <option value="low" <%= task.priority === "low" ? "selected" : "" %>>Low</option>
-          <option value="med" <%= task.priority === "med" ? "selected" : "" %>>Medium</option>
-          <option value="high" <%= task.priority === "high" ? "selected" : "" %>>High</option>
-        </select><br>
-    
-        <label>Type:</label>
-        <input type="text" name="type" value="<%= task.type %>"><br>
-    
-        <label>Status:</label>
-        <select name="status">
-          <option value="Not Started" <%= task.status === "Not Started" ? "selected" : "" %>>Not Started</option>
-          <option value="In Progress" <%= task.status === "In Progress" ? "selected" : "" %>>In Progress</option>
-          <option value="Completed" <%= task.status === "Completed" ? "selected" : "" %>>Completed</option>
-        </select><br>
-    
-        <button type="submit">Update Task</button>
       </form>
+      
       
     </div>
   </body>
