@@ -21,37 +21,37 @@
       <form action="/updateTask/<%= task.taskId %>" method="POST">
         <div class="form-sub-container">
           <label class="form-title" for="title">Title</label>
-          <input class="form-input" type="text" id="title" name="title" value="<%= task.title %>" class="form-control" required>
+          <input class="form-input" type="text" id="title" name="title" value="<%= task.title %>"  required>
         </div>
       
-        <div class="form-sub-container">
+        <!-- <div class="form-sub-container">
           <label class="form-title" for="startDate">Start Date</label>
-          <input class="form-input" type="date" id="startDate" name="startDate" value="<%= task.startDate %>" class="form-control" required>
+          <input class="form-input" type="date" id="startDate" name="startDate" value="<%= task.startDate %>"  required>
+        </div>
+        
+        <div class="form-sub-container">
+          <label class="form-title" for="endDate">End Date</label>
+          <input class="form-input" type="date" id="endDate" name="endDate" value="<%= task.endDate %>"  required>
         </div>
       
         <div class="form-sub-container">
           <label class="form-title" for="startTime">Start Time</label>
-          <input class="form-input" type="time" id="startTime" name="startTime" value="<%= task.startTime %>" class="form-control" required>
-        </div>
-      
-        <div class="form-sub-container">
-          <label class="form-title" for="endDate">End Date</label>
-          <input class="form-input" type="date" id="endDate" name="endDate" value="<%= task.endDate %>" class="form-control" required>
+          <input class="form-input" type="time" id="startTime" name="startTime" value="<%= task.startTime %>"  required>
         </div>
       
         <div class="form-sub-container">
           <label class="form-title" for="endTime">End Time</label>
-          <input class="form-input" type="time" id="endTime" name="endTime" value="<%= task.endTime %>" class="form-control" required>
-        </div>
+          <input class="form-input" type="time" id="endTime" name="endTime" value="<%= task.endTime %>"  required>
+        </div> -->
       
         <div class="form-sub-container">
           <label class="form-title" for="location">Location</label>
-          <input class="form-input" type="text" id="location" name="location" value="<%= task.location %>" class="form-control" required>
+          <input class="form-input" type="text" id="location" name="location" value="<%= task.location %>"  required>
         </div>
       
         <div class="form-sub-container">
           <label class="form-title " for="description">Description</label>
-          <textarea class="form-input form-input-text" id="description" name="description" class="form-control" required><%= task.description %></textarea>
+          <textarea class="form-input form-input-text" id="description" name="description"  required><%= task.description %></textarea>
         </div>
       
         <div class="form-sub-container">

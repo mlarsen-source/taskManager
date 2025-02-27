@@ -4,29 +4,31 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Open Sans", Arial, Helvetica, sans-serif;
-  font-size: 16px;
+  font-size: 1rem; /* Base font size relative to the root */
   line-height: 1.6;
   background-color: rgb(216, 216, 216);
   color: #404040;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 100vh; /* Ensures full viewport height */
 }
 
 .card-container {
   background-color: #ececec;
-  border-radius: 7px;
-  padding: 40px 40px 60px 40px;
-  margin: 10px;
-  width: 450px;
+  border-radius: 0.5rem; /* Scales with font size */
+  padding: 2.5rem; /* Scales with font size */
+  margin: 0.5rem;
+  width: 90vw; /* Adapts to viewport width */
+  max-width: 28rem; /* Prevents overly wide cards */
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0.625rem; /* Scales with font size */
   box-sizing: border-box;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.1),
+    0 0.25rem 0.375rem rgba(0, 0, 0, 0.05);
   transition: box-shadow 0.3s ease-in-out;
 }
 
