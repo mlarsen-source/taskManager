@@ -38,10 +38,7 @@ app.post("/createTask", (req, res) => {
   const task = {
     taskId: taskCounter,
     title: req.body.title,
-    startDate: req.body.startDate,
-    startTime: req.body.startTime,
-    endDate: req.body.endDate,
-    endTime: req.body.endTime,
+    dueDate: req.body.dueDate,
     location: req.body.location,
     description: req.body.description,
     priority: req.body.priority,
@@ -93,10 +90,7 @@ app.post("/updateTask/:taskId", (req, res) => {
   const task = taskList.find((t) => t.taskId === taskId);
 
   task.title = req.body.title;
-  task.startDate = req.body.startDate;
-  task.startTime = req.body.startTime;
-  task.endDate = req.body.endDate;
-  task.endTime = req.body.endTime;
+  task.dueDate = req.body.dueDate;
   task.location = req.body.location;
   task.description = req.body.description;
   task.priority = req.body.priority;
