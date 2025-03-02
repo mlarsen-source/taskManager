@@ -17,71 +17,62 @@
         <a href="/viewTask/<%= task.taskId %>"><i class="bi bi-x-square"></i></a>
       </div>
 
-
       <form action="/updateTask/<%= task.taskId %>" method="POST">
         <div class="form-sub-container">
           <label class="form-title" for="title">Title</label>
-          <input class="form-input" type="text" id="title" name="title" value="<%= task.title %>"  required>
-        </div>
-      
-        <!-- <div class="form-sub-container">
-          <label class="form-title" for="startDate">Start Date</label>
-          <input class="form-input" type="date" id="startDate" name="startDate" value="<%= task.startDate %>"  required>
-        </div>
-        
-        <div class="form-sub-container">
-          <label class="form-title" for="endDate">End Date</label>
-          <input class="form-input" type="date" id="endDate" name="endDate" value="<%= task.endDate %>"  required>
+          <input class="form-input" type="text" id="title" name="title" value="<%= task.title %>" required>
         </div>
       
         <div class="form-sub-container">
-          <label class="form-title" for="startTime">Start Time</label>
-          <input class="form-input" type="time" id="startTime" name="startTime" value="<%= task.startTime %>"  required>
+          <label class="form-title" for="dueDate">Due Date</label>
+          <input class="form-input" type="date" id="dueDate" name="dueDate" value="<%= task.dueDate %>" required>
         </div>
-      
-        <div class="form-sub-container">
-          <label class="form-title" for="endTime">End Time</label>
-          <input class="form-input" type="time" id="endTime" name="endTime" value="<%= task.endTime %>"  required>
-        </div> -->
       
         <div class="form-sub-container">
           <label class="form-title" for="location">Location</label>
-          <input class="form-input" type="text" id="location" name="location" value="<%= task.location %>"  required>
+          <input class="form-input" type="text" id="location" name="location" value="<%= task.location %>">
+        </div>
+
+        <div class="form-sub-container">
+          <label class="form-title" for="description">Description</label>
+          <textarea class="form-input form-input-text" id="description" name="description" rows="4"><%= task.description %></textarea>
         </div>
       
         <div class="form-sub-container">
-          <label class="form-title " for="description">Description</label>
-          <textarea class="form-input form-input-text" id="description" name="description"  required><%= task.description %></textarea>
-        </div>
+          <label class="form-title">Task Type</label>
+          <select class="form-input" id="type" name="type" title="Please select a type">
+            <option value="General" <%= task.type === "General" ? "selected" : "" %>>General</option>
+            <option value="Work" <%= task.type === "Work" ? "selected" : "" %>>Work</option>
+            <option value="School" <%= task.type === "School" ? "selected" : "" %>>School</option>
+            <option value="Personal" <%= task.type === "Personal" ? "selected" : "" %>>Personal</option>
+            <option value="Financial" <%= task.type === "Financial" ? "selected" : "" %>>Financial</option>
+            <option value="Health" <%= task.type === "Health" ? "selected" : "" %>>Health</option>
+            <option value="Travel" <%= task.type === "Travel" ? "selected" : "" %>>Travel</option>
+          </select>
+        </div>  <!-- ✅ Missing Closing </div> Added Here -->
       
         <div class="form-sub-container">
           <label class="form-title" for="priority">Priority</label>
-          <select class="form-input" name="priority" id="priority" class="form-control" required>
-            <option value="low" <%= task.priority === "low" ? "selected" : "" %>>Low</option>
-            <option value="med" <%= task.priority === "med" ? "selected" : "" %>>Medium</option>
-            <option value="high" <%= task.priority === "high" ? "selected" : "" %>>High</option>
+          <select class="form-input" name="priority" id="priority" required>
+            <option value="Low" <%= task.priority === "Low" ? "selected" : "" %>>Low</option>
+            <option value="Medium" <%= task.priority === "Medium" ? "selected" : "" %>>Medium</option>
+            <option value="High" <%= task.priority === "High" ? "selected" : "" %>>High</option>
           </select>
         </div>
-      
-        <div class="form-sub-container">
-          <label class="form-title" for="type">Type</label>
-          <input class="form-input" type="text" id="type" name="type" value="<%= task.type %>" class="form-control" required>
-        </div>
-      
+           
         <div class="form-sub-container">
           <label class="form-title" for="status">Status</label>
-          <select class="form-input" name="status" id="status" class="form-control" required>
+          <select class="form-input" name="status" id="status" required>
             <option value="Not Started" <%= task.status === "Not Started" ? "selected" : "" %>>Not Started</option>
             <option value="In Progress" <%= task.status === "In Progress" ? "selected" : "" %>>In Progress</option>
             <option value="Completed" <%= task.status === "Completed" ? "selected" : "" %>>Completed</option>
           </select>
         </div>
+      
         <div class="form-btn-container">
           <button type="submit" class="submit-btn">Update Task</button>
         </div>
-        
       </form>
-      
       
     </div>
   </body>

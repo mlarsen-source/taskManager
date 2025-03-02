@@ -24,7 +24,7 @@
         <form action="createTask" method="post">
           <div class="form-sub-container">
             <label class="form-title"> Task Title </label>
-            <input type="text" id="title" name="title" class="form-input" />
+            <input type="text" id="title" name="title" class="form-input" required/>
           </div>
           <div class="form-sub-container">
             <label class="form-title"> Description </label>
@@ -41,6 +41,7 @@
               class="form-input form-input-text"
               id="dueDate"
               name="dueDate"
+              required
             />
           </div>
 
@@ -49,13 +50,13 @@
             <label class="form-title">Priority</label>
             <div>
               <label class="form-title"
-                ><input type="radio" name="priority" value="low" />Low</label
+                ><input type="radio" name="priority" value="Low" checked/>Low</label
               >
               <label class="form-title"
-                ><input type="radio" name="priority" value="med" />Medium</label
+                ><input type="radio" name="priority" value="Medium" />Medium</label
               >
               <label class="form-title"
-                ><input type="radio" name="priority" value="high" />High</label
+                ><input type="radio" name="priority" value="High" />High</label
               >
             </div>
           </div>

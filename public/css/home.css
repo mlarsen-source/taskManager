@@ -67,13 +67,13 @@
   font-weight: 600;
 }
 
-.card-list-item.low {
+.card-list-item.Low {
   background-color: greenyellow;
 }
-.card-list-item.med {
+.card-list-item.Medium {
   background-color: orange;
 }
-.card-list-item.high {
+.card-list-item.High {
   background-color: red;
 }
 .card-list-item.work {

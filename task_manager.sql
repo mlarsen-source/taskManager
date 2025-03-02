@@ -1,4 +1,4 @@
--- CREATE SCHEMA task_manager;
+CREATE SCHEMA task_manager;
 
 USE task_manager;
 
@@ -6,12 +6,12 @@ DROP TABLE IF EXISTS tasks;
 
 CREATE TABLE tasks (
     taskId INT AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    dueDate DATE NOT NULL,
+    title VARCHAR(255),
+    dueDate DATE,
     location VARCHAR(255),
     description TEXT,
-    priority ENUM('Low', 'Medium', 'High') NOT NULL,
-    type ENUM('Work', 'School', 'Personal', 'Financial', 'Health', 'Travel', 'General') NOT NULL,
+    priority ENUM('Low', 'Medium', 'High'),
+    type ENUM('Work', 'School', 'Personal', 'Financial', 'Health', 'Travel', 'General'),
     status ENUM('Not Started', 'In Progress', 'Completed', 'On Hold') DEFAULT 'Not Started',
     view BOOLEAN DEFAULT TRUE,
     created TIMESTAMP DEFAULT CURRENT_TIMESTAMP
