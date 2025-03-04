@@ -99,8 +99,8 @@ app.post("/createTask", async (req, res) => {
 
     // add the task to the database
     await conn.query(
-      `INSERT INTO tasks (title, dueDate, location, description, priority, type, view) 
-    VALUES (?, ?, ?, ?, ?, ?, 1)`,
+      `INSERT INTO tasks (title, dueDate, location, description, priority, type) 
+      VALUES (?, ?, ?, ?, ?, ?)`,
       [
         task.title,
         task.dueDate,
@@ -116,10 +116,8 @@ app.post("/createTask", async (req, res) => {
     res.redirect("/");
   } catch (error) {
     console.error("Database query error:", error);
-    if (conn) {
-      conn.end();
-    }
-    res.status(500).send("An error occurred while fetching tasks.");
+
+    res.status(500).send("An error occurred while creating task.");
   }
 });
 
@@ -140,10 +138,8 @@ app.get("/editTask/:taskId", async (req, res) => {
     res.render("editTask", { task: task[0] });
   } catch (error) {
     console.error("Database query error:", error);
-    if (conn) {
-      conn.end();
-    }
-    res.status(500).send("An error occurred while fetching tasks.");
+
+    res.status(500).send("An error occurred while fetching task.");
   }
 });
 
@@ -161,9 +157,7 @@ app.get("/viewTask/:taskId", async (req, res) => {
     res.render("viewTask", { task: task[0] });
   } catch (error) {
     console.error("Database query error:", error);
-    if (conn) {
-      conn.end();
-    }
+
     res.status(500).send("An error occurred while fetching tasks.");
   }
 });
@@ -212,9 +206,7 @@ app.post("/updateTask/:taskId", async (req, res) => {
     res.redirect(`/viewTask/${taskId}`);
   } catch (error) {
     console.error("Database query error:", error);
-    if (conn) {
-      conn.end();
-    }
+
     res.status(500).send("An error occurred while fetching tasks.");
   }
 });
