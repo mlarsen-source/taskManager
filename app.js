@@ -173,7 +173,7 @@ app.post("/updateTask/:taskId", async (req, res) => {
   try {
     const taskId = parseInt(req.params.taskId, 10);
     const conn = await connect();
-
+    console.log(req.body);
     //checks if the user clicked update or delete
     //need validation on this so spoofing cant exist
     if (req.body?.PUT == 1) {
@@ -201,6 +201,7 @@ app.post("/updateTask/:taskId", async (req, res) => {
         0,
         taskId,
       ]);
+      //route to home
     }
 
     // release connection

@@ -18,7 +18,7 @@
         <a href="/viewTask/<%= task.taskId %>"><i class="bi bi-x-square"></i></a>
       </div>
 
-      <form action="/updateTask/<%= task.taskId %>" method="POST">
+      <form action="/updateTask/<%= task.taskId %>" method="POST" id="update-form">
         <div class="form-sub-container">
           <label class="form-title" for="title">Title</label>
           <input class="form-input" type="text" id="title" name="title" value="<%= task.title %>" required>
@@ -77,14 +77,16 @@
       </form>
       
     </div>
+    
 
 
     <!-- Modal Structure -->
     <div id="dlt-modal" class="delete-modal">
       <div class="delete-modal-content">
-        <span id="close-modal">&times;</span>
-        <h2>Task Details</h2>
-        <p>This is a modal window!</p>
+        <h2 class="modal-title">Warning</h2>
+        <p class="modal-content">Are you sure you want to delete this task?</p>
+        <button class="submit-btn delete" id="confirm-delete">Delete</button>
+        <button class="submit-btn" id="close-modal">Cancel</button>
       </div>
     </div>
   
