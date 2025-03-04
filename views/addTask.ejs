@@ -24,7 +24,13 @@
         <form action="createTask" method="post">
           <div class="form-sub-container">
             <label class="form-title"> Task Title </label>
-            <input type="text" id="title" name="title" class="form-input" required/>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              class="form-input"
+              required
+            />
           </div>
           <div class="form-sub-container">
             <label class="form-title"> Description </label>
@@ -38,22 +44,40 @@
             <label class="form-title"> Due Date </label>
             <input
               type="date"
-              class="form-input form-input-text"
+              class="form-input"
               id="dueDate"
               name="dueDate"
               required
             />
           </div>
-
+          <div class="form-sub-container">
+            <label class="form-title"> Location </label>
+            <input
+              type="text"
+              id="location"
+              name="location"
+              class="form-input"
+              required
+            />
+          </div>
 
           <div class="form-sub-container">
             <label class="form-title">Priority</label>
             <div>
               <label class="form-title"
-                ><input type="radio" name="priority" value="Low" checked/>Low</label
+                ><input
+                  type="radio"
+                  name="priority"
+                  value="Low"
+                  checked
+                />Low</label
               >
               <label class="form-title"
-                ><input type="radio" name="priority" value="Medium" />Medium</label
+                ><input
+                  type="radio"
+                  name="priority"
+                  value="Medium"
+                />Medium</label
               >
               <label class="form-title"
                 ><input type="radio" name="priority" value="High" />High</label

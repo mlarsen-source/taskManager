@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/default.css" />
-    <link rel="stylesheet" href="/css/edit.css" />
+    <link rel="stylesheet" href="/css/edit.css" />  
+    <link rel="stylesheet" href="/css/delete-modal.css">
     <link rel="icon" type="image/png" href="/images/edit.png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"/>
     <title>Edit Task Page</title>
@@ -70,10 +71,24 @@
         </div>
       
         <div class="form-btn-container">
-          <button type="submit" class="submit-btn">Update Task</button>
+          <button type="button" class="submit-btn delete" name="DELETE" value="1" id="delete-btn">Delete Task</button>
+          <button type="submit" class="submit-btn" name="PUT" value="1">Update Task</button>
         </div>
       </form>
       
     </div>
+
+
+    <!-- Modal Structure -->
+    <div id="dlt-modal" class="delete-modal">
+      <div class="delete-modal-content">
+        <span id="close-modal">&times;</span>
+        <h2>Task Details</h2>
+        <p>This is a modal window!</p>
+      </div>
+    </div>
+  
+    <script src="/js/deleteModal.js"></script>
   </body>
 </html>
+

@@ -70,17 +70,17 @@ body {
   font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
 
+.form-input-text {
+  height: 50px;
+  resize: vertical;
+}
+
 .form-input:focus {
   margin: 5px 0;
   padding: 5px 0;
   border-radius: 7px;
   border: 2px solid #94bfff;
   outline: none;
-}
-
-.form-input-text {
-  height: 50px;
-  resize: vertical;
 }
 
 .form-btn-container {
@@ -103,9 +103,18 @@ body {
   transition: 500ms;
 }
 
+.delete {
+  background-color: #dc4c64;
+}
+
 .submit-btn:hover,
 .submit-btn:focus {
   background-color: #609fff;
+}
+
+.delete:hover,
+.delete:focus {
+  background-color: #d47c8b;
 }
 
 .bi {
