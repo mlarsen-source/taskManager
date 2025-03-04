@@ -202,6 +202,9 @@ app.post("/updateTask/:taskId", async (req, res) => {
         taskId,
       ]);
       //route to home
+      conn.end();
+      res.redirect(`/`);
+      return;
     }
 
     // release connection
