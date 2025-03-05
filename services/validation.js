@@ -44,7 +44,7 @@ export function validateForm(data, options = {}) {
 
   // validate status only if `options.checkStatus` is true (when function called from update task route )
   if (options.checkStatus) {
-    const validStatuses = ["Pending", "In Progress", "Completed"];
+    const validStatuses = ["Not Started", "In Progress", "Completed"];
     if (!validStatuses.includes(data.status)) {
       errors.push("A valid Status must be selected");
     }

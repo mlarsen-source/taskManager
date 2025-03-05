@@ -57,7 +57,7 @@ app.get("/", async (req, res) => {
     `);
 
     // release connection
-    conn.end();
+    conn.release();
     res.render("home", { taskList });
   } catch (error) {
     console.error("Database query error:", error);
@@ -116,7 +116,7 @@ app.post("/createTask", async (req, res) => {
     );
 
     // release connection
-    conn.end();
+    conn.release();
     res.redirect("/");
   } catch (error) {
     console.error("Database query error:", error);
@@ -140,7 +140,7 @@ app.get("/editTask/:taskId", async (req, res) => {
     task[0].dueDate = task[0].dueDate.toISOString().split("T")[0];
 
     // release connection
-    conn.end();
+    conn.release();
     res.render("editTask", { task: task[0] });
   } catch (error) {
     console.error("Database query error:", error);
@@ -161,7 +161,7 @@ app.get("/viewTask/:taskId", async (req, res) => {
     ]);
 
     // release connection
-    conn.end();
+    conn.release();
     res.render("viewTask", { task: task[0] });
   } catch (error) {
     console.error("Database query error:", error);
@@ -178,10 +178,16 @@ app.post("/updateTask/:taskId", async (req, res) => {
     const taskId = parseInt(req.params.taskId, 10);
     const conn = await connect();
     console.log(req.body);
-    //checks if the user clicked update or delete
-    //need validation on this so spoofing cant exist
-    
-    // extract task data from form
+
+    // If delete button is used, skip form validation and remove the task from the database 
+    if (req.body.DELETE == 1) {
+      console.log("Deleting Task ID:", taskId);
+      await conn.query(`DELETE FROM tasks WHERE taskId = ?`, [taskId]); 
+      conn.release();
+      return res.redirect("/");
+    }
+
+    // If update button used, validate the form and then update the database
     const task = {
       title: req.body.title,
       dueDate: req.body.dueDate,
@@ -192,7 +198,7 @@ app.post("/updateTask/:taskId", async (req, res) => {
       status: req.body.status,
     };
 
-    //server side validation
+     //server side validation
     const result = validateForm(task);
     if (!result.isValid) {
       console.log(result.errors);
@@ -200,45 +206,31 @@ app.post("/updateTask/:taskId", async (req, res) => {
       res.render("error", { errorList });
       return;
     }
-   
-    if (req.body?.PUT == 1) {
-      console.log("Update");
-      // set view to false if status is completed
-      const viewValue = req.body.status === "Completed" ? false : true;
 
-      await conn.query(
-        `UPDATE tasks SET title=?, dueDate=?, location=?, description=?, priority=?, type=?, status=?, view=? WHERE taskId=?`,
-        [
-          req.body.title,
-          req.body.dueDate,
-          req.body.location,
-          req.body.description,
-          req.body.priority,
-          req.body.type,
-          req.body.status,
-          viewValue,
-          taskId,
-        ]
-      );
-    } else if (req.body.DELETE == 1) {
-      console.log("Delete");
-      await conn.query(`UPDATE tasks SET view = ? WHERE taskId = ?`, [
-        0,
+    console.log("Update");
+    // set view to false if status is completed
+    const viewValue = req.body.status === "Completed" ? false : true;
+
+    await conn.query(
+      `UPDATE tasks SET title=?, dueDate=?, location=?, description=?, priority=?, type=?, status=?, view=? WHERE taskId=?`,
+      [
+        req.body.title,
+        req.body.dueDate,
+        req.body.location,
+        req.body.description,
+        req.body.priority,
+        req.body.type,
+        req.body.status,
+        viewValue,
         taskId,
-      ]);
-      //route to home
-      conn.end();
-      res.redirect(`/`);
-      return;
-    }
+      ]
+    );
 
-    // release connection
-    conn.end();
+    conn.release();
     res.redirect(`/viewTask/${taskId}`);
   } catch (error) {
     console.error("Database query error:", error);
-
-    res.status(500).send("An error occurred while fetching tasks.");
+    res.status(500).send("An error occurred while updating the task.");
   }
 });
 
