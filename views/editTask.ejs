@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/css/delete-modal.css">
     <link rel="icon" type="image/png" href="/images/edit.png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"/>
+    <script src="/js/validationEditTask.js" defer></script>
     <title>Edit Task Page</title>
   </head>
   <body>
@@ -18,25 +19,29 @@
         <a href="/viewTask/<%= task.taskId %>"><i class="bi bi-x-square"></i></a>
       </div>
 
-      <form action="/updateTask/<%= task.taskId %>" method="POST" id="update-form">
+      <form action="/updateTask/<%= task.taskId %>" method="POST" id="edit-task-form">
         <div class="form-sub-container">
           <label class="form-title" for="title">Title</label>
           <input class="form-input" type="text" id="title" name="title" value="<%= task.title %>" >
+          <span class="err" id="err-title">Title is required</span>
         </div>
       
         <div class="form-sub-container">
           <label class="form-title" for="dueDate">Due Date</label>
           <input class="form-input" type="date" id="dueDate" name="dueDate" value="<%= task.dueDate %>" >
+          <span class="err" id="err-dueDate">Date is required</span>
         </div>
       
         <div class="form-sub-container">
           <label class="form-title" for="location">Location</label>
           <input class="form-input" type="text" id="location" name="location" value="<%= task.location %>">
+          <span class="err" id="err-location">Location is required</span>
         </div>
 
         <div class="form-sub-container">
           <label class="form-title" for="description">Description</label>
           <textarea class="form-input form-input-text" id="description" name="description" rows="4"><%= task.description %></textarea>
+          <span class="err" id="err-description">Description is required</span>
         </div>
       
         <div class="form-sub-container">

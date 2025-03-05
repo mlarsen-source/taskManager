@@ -66,14 +66,10 @@ app.get("/", async (req, res) => {
   }
 });
 
-
-
 // define addTask route
 app.get("/addTask", (req, res) => {
   res.render("addtask");
 });
-
-
 
 // define createTask route insert form fields into database
 app.post("/createTask", async (req, res) => {
@@ -91,12 +87,11 @@ app.post("/createTask", async (req, res) => {
     //server side validation
     const result = validateForm(task);
     if (!result.isValid) {
-    console.log(result.errors);
-    const errorList = result.errors;
-    res.render("error", { errorList });
-    return;
+      console.log(result.errors);
+      const errorList = result.errors;
+      res.render("error", { errorList });
+      return;
     }
-      
 
     // connect to the database
     const conn = await connect();
@@ -125,8 +120,6 @@ app.post("/createTask", async (req, res) => {
   }
 });
 
-
-
 // define editTask get route to populate edit task form with data from database
 app.get("/editTask/:taskId", async (req, res) => {
   try {
@@ -149,8 +142,6 @@ app.get("/editTask/:taskId", async (req, res) => {
   }
 });
 
-
-
 // define viewTask route to view specific task details
 app.get("/viewTask/:taskId", async (req, res) => {
   try {
@@ -170,19 +161,16 @@ app.get("/viewTask/:taskId", async (req, res) => {
   }
 });
 
-
-
 // define updateTask post route to update database with editTask form data
 app.post("/updateTask/:taskId", async (req, res) => {
   try {
     const taskId = parseInt(req.params.taskId, 10);
     const conn = await connect();
-    console.log(req.body);
 
-    // If delete button is used, skip form validation and remove the task from the database 
+    // If delete button is used, skip form validation and remove the task from the database
     if (req.body.DELETE == 1) {
       console.log("Deleting Task ID:", taskId);
-      await conn.query(`DELETE FROM tasks WHERE taskId = ?`, [taskId]); 
+      await conn.query(`DELETE FROM tasks WHERE taskId = ?`, [taskId]);
       conn.release();
       return res.redirect("/");
     }
@@ -198,7 +186,7 @@ app.post("/updateTask/:taskId", async (req, res) => {
       status: req.body.status,
     };
 
-     //server side validation
+    //server side validation
     const result = validateForm(task);
     if (!result.isValid) {
       console.log(result.errors);
@@ -207,7 +195,6 @@ app.post("/updateTask/:taskId", async (req, res) => {
       return;
     }
 
-    console.log("Update");
     // set view to false if status is completed
     const viewValue = req.body.status === "Completed" ? false : true;
 

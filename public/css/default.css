@@ -117,6 +117,20 @@ body {
   background-color: #d47c8b;
 }
 
+.err {
+  font-size: 12px;
+  color: red;
+  margin: 0;
+  display: none;
+}
+
+.form-input-err {
+  border: red 1px solid;
+}
+.form-input-err:focus {
+  border: red 1px solid;
+}
+
 .bi {
   font-size: 30px;
   cursor: pointer;
