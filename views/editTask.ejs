@@ -21,12 +21,12 @@
       <form action="/updateTask/<%= task.taskId %>" method="POST" id="update-form">
         <div class="form-sub-container">
           <label class="form-title" for="title">Title</label>
-          <input class="form-input" type="text" id="title" name="title" value="<%= task.title %>" required>
+          <input class="form-input" type="text" id="title" name="title" value="<%= task.title %>" >
         </div>
       
         <div class="form-sub-container">
           <label class="form-title" for="dueDate">Due Date</label>
-          <input class="form-input" type="date" id="dueDate" name="dueDate" value="<%= task.dueDate %>" required>
+          <input class="form-input" type="date" id="dueDate" name="dueDate" value="<%= task.dueDate %>" >
         </div>
       
         <div class="form-sub-container">
@@ -54,7 +54,7 @@
       
         <div class="form-sub-container">
           <label class="form-title" for="priority">Priority</label>
-          <select class="form-input" name="priority" id="priority" required>
+          <select class="form-input" name="priority" id="priority" >
             <option value="Low" <%= task.priority === "Low" ? "selected" : "" %>>Low</option>
             <option value="Medium" <%= task.priority === "Medium" ? "selected" : "" %>>Medium</option>
             <option value="High" <%= task.priority === "High" ? "selected" : "" %>>High</option>
@@ -63,7 +63,7 @@
            
         <div class="form-sub-container">
           <label class="form-title" for="status">Status</label>
-          <select class="form-input" name="status" id="status" required>
+          <select class="form-input" name="status" id="status" >
             <option value="Not Started" <%= task.status === "Not Started" ? "selected" : "" %>>Not Started</option>
             <option value="In Progress" <%= task.status === "In Progress" ? "selected" : "" %>>In Progress</option>
             <option value="Completed" <%= task.status === "Completed" ? "selected" : "" %>>Completed</option>

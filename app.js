@@ -66,10 +66,14 @@ app.get("/", async (req, res) => {
   }
 });
 
+
+
 // define addTask route
 app.get("/addTask", (req, res) => {
   res.render("addtask");
 });
+
+
 
 // define createTask route insert form fields into database
 app.post("/createTask", async (req, res) => {
@@ -84,15 +88,15 @@ app.post("/createTask", async (req, res) => {
       type: req.body.type,
     };
 
-    // Need to determine form validation requirements if any and add them into the validateForm funtion in validate.js file)
-    /*
-  const result = validateForm(task);
-  if (!result.isValid) {
+    //server side validation
+    const result = validateForm(task);
+    if (!result.isValid) {
     console.log(result.errors);
-    res.send(result.errors);
+    const errorList = result.errors;
+    res.render("error", { errorList });
     return;
-  }
-    */
+    }
+      
 
     // connect to the database
     const conn = await connect();
@@ -121,6 +125,8 @@ app.post("/createTask", async (req, res) => {
   }
 });
 
+
+
 // define editTask get route to populate edit task form with data from database
 app.get("/editTask/:taskId", async (req, res) => {
   try {
@@ -143,6 +149,8 @@ app.get("/editTask/:taskId", async (req, res) => {
   }
 });
 
+
+
 // define viewTask route to view specific task details
 app.get("/viewTask/:taskId", async (req, res) => {
   try {
@@ -162,6 +170,8 @@ app.get("/viewTask/:taskId", async (req, res) => {
   }
 });
 
+
+
 // define updateTask post route to update database with editTask form data
 app.post("/updateTask/:taskId", async (req, res) => {
   try {
@@ -170,6 +180,27 @@ app.post("/updateTask/:taskId", async (req, res) => {
     console.log(req.body);
     //checks if the user clicked update or delete
     //need validation on this so spoofing cant exist
+    
+    // extract task data from form
+    const task = {
+      title: req.body.title,
+      dueDate: req.body.dueDate,
+      location: req.body.location,
+      description: req.body.description,
+      priority: req.body.priority,
+      type: req.body.type,
+      status: req.body.status,
+    };
+
+    //server side validation
+    const result = validateForm(task);
+    if (!result.isValid) {
+      console.log(result.errors);
+      const errorList = result.errors;
+      res.render("error", { errorList });
+      return;
+    }
+   
     if (req.body?.PUT == 1) {
       console.log("Update");
       // set view to false if status is completed
@@ -213,5 +244,5 @@ app.post("/updateTask/:taskId", async (req, res) => {
 
 // tell the server to listen on our specified port
 app.listen(PORT, () => {
-  console.log(`🚀 Server is running at http://localhost:${PORT}`);
+  console.log(`Server is running at http://localhost:${PORT}`);
 });

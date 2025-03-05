@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/default.css" />
+    <link rel="stylesheet" href="/css/add.css" />
+    <link rel="icon" type="image/png" href="/images/error.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+    />
+
+    <title>Error Page</title>
+  </head>
+  <body>
+    <div class="card-container">
+      <div class="card-nav">
+        <a href="/"><i class="bi bi-house-door"></i></a>
+        <h2 class="card-header">Errors Identified</h2>
+        <a href="addTask"><i class="bi bi-clipboard2-plus"></i></a>
+        <div></div>
+      </div>
+     
+      <div class="task-list-container">
+        <h4>The following errors have prevented this task from being added.</h4>
+        
+        <div class="card-list">
+          <% errorList.forEach(error => { %> 
+            <p class="card-list-item title"><%= error %> </p>
+          <% }) %>
+        </div> 
+        
+        <h4>You must correct these errors before this task can be added.</h4>
+        <button onclick="history.back()">Return to Form</button>  
+      </div> 
+    </div>
+  </body>
+</html>
