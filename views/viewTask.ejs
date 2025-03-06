@@ -16,15 +16,47 @@
         <h1 class="card-header"><%= task.title %></h1>
         <a href="/editTask/<%= task.taskId %>"><i class="bi bi-pencil-square"></i></a>
       </div>
-      <div>
-        <p>Priority: <%= task.priority %></p>
-        <p>Status: <%= task.status %></p>
-        <p>Description: <%= task.description %></p>
-        <p>Location: <%= task.location %></p>
-        <p>Task Type: <%= task.type %></p>
-        <p>Due Date: <%= new Date(task.dueDate).toLocaleDateString("en-US", { dateStyle: "medium" }) %></p>
-        <p>Created: <%= new Date(task.created).toLocaleDateString("en-US", { dateStyle: "medium" }) %></p>
+      <div class="info-container">
+        <div class="info-sub-container"> 
+          <p><%= task.status %></p>
+        </div>
+        <div class="info-sub-container">
+          <p class="info-title">Priority</p>
+          <div class="task-container">
+            <p><%= task.priority %></p>
+          </div>
+        </div>
 
+        <div class="info-sub-container">    
+          <p class="info-title">Description </p>
+          <div class="task-container">
+            <p><%= task.description %></p>
+          </div>
+        </div>
+        <div class="info-sub-container">  
+          <p class="info-title">Location</p>
+          <div class="task-container">
+            <p><%= task.location %></p>
+          </div>
+        </div>
+        <div class="info-sub-container">   
+          <p class="info-title">Task Type: </p>
+          <div class="task-container">
+            <p><%= task.type %></p>
+          </div>
+        </div>
+        <div class="info-sub-container"> 
+          <p class="info-title">Due Date</p>
+          <div class="task-container">
+            <p><%= new Date(task.dueDate).toLocaleDateString("en-US", { dateStyle: "medium" }) %></p>
+          </div>
+        </div>
+        <div class="info-sub-container"> 
+          <p class="info-title">Created</p>
+          <div class="task-container">
+            <p><%= new Date(task.created).toLocaleDateString("en-US", { dateStyle: "medium" }) %></p>
+          </div>
+        </div>
     </div>
   </body>
 </html>

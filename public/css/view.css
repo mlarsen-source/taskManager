@@ -8,5 +8,25 @@
 
 .b1:visited {
   color: #494949;
-  text-decoration: none; 
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
+}
+
+.info-sub-container {
+}
+
+.task-container {
+  border: lightgray 1px solid;
+  border-radius: 5px;
+  margin: 0 0 10px 0;
+  padding: 0 10px;
+}
+
+.info-title {
+  font-size: 14px;
+  text-align: start;
+  font-weight: 500;
 }
