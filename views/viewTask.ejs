@@ -18,12 +18,14 @@
       </div>
       <div class="info-container">
         <div class="info-sub-container"> 
-          <p><%= task.status %></p>
+          <h3><%= task.status %></h3>
         </div>
         <div class="info-sub-container">
           <p class="info-title">Priority</p>
-          <div class="task-container">
+          <div class="task-container bubble">
+            <span class="color-bubble <%= task.priority %>"></span>
             <p><%= task.priority %></p>
+            <div></div>
           </div>
         </div>
 
@@ -41,8 +43,10 @@
         </div>
         <div class="info-sub-container">   
           <p class="info-title">Task Type: </p>
-          <div class="task-container">
+          <div class="task-container bubble">
+            <span class="color-bubble <%= task.type %>"></span>
             <p><%= task.type %></p>
+            <div></div>
           </div>
         </div>
         <div class="info-sub-container"> 

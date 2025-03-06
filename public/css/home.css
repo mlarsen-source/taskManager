@@ -43,16 +43,16 @@
 
 .b1:visited {
   color: #494949;
-  text-decoration: none; 
+  text-decoration: none;
 }
 
 .card-link {
   color: #494949;
-  text-decoration: none; 
+  text-decoration: none;
 }
 .card-link:visited {
   color: #494949;
-  text-decoration: none; 
+  text-decoration: none;
 }
 
 .card-list-item {
@@ -75,27 +75,4 @@
 }
 .card-list-item.High {
   background-color: red;
-}
-.card-list-item.work {
-  background-color: #ffcccb;
-}
-
-.card-list-item.school {
-  background-color: #add8e6;
-}
-
-.card-list-item.personal {
-  background-color: #90ee90;
-}
-
-.card-list-item.financial {
-  background-color: #f4c542;
-}
-
-.card-list-item.health {
-  background-color: #ffb6c1;
-}
-
-.card-list-item.travel {
-  background-color: #dda0dd;
 }

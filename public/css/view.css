@@ -22,11 +22,58 @@ p {
   border: lightgray 1px solid;
   border-radius: 5px;
   margin: 0 0 10px 0;
-  padding: 0 10px;
+  padding: 5px 10px;
+}
+
+.task-container.bubble {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .info-title {
   font-size: 14px;
   text-align: start;
   font-weight: 500;
+}
+
+.color-bubble {
+  margin: 0;
+  padding: 7px;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.color-bubble.Low {
+  background-color: greenyellow;
+}
+.color-bubble.Medium {
+  background-color: orange;
+}
+.color-bubble.High {
+  background-color: red;
+}
+
+.color-bubble.Work {
+  background-color: #ffcccb;
+}
+
+.color-bubble.School {
+  background-color: #add8e6;
+}
+
+.color-bubble.Personal {
+  background-color: #90ee90;
+}
+
+.color-bubble.Financial {
+  background-color: #f4c542;
+}
+
+.color-bubble.Health {
+  background-color: #ffb6c1;
+}
+
+.color-bubble.Travel {
+  background-color: #dda0dd;
 }
