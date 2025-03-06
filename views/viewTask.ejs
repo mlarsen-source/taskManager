@@ -24,7 +24,7 @@
           <p class="info-title">Priority</p>
           <div class="task-container bubble">
             <span class="color-bubble <%= task.priority %>"></span>
-            <p><%= task.priority %></p>
+            <p class="task-text"><%= task.priority %></p>
             <div></div>
           </div>
         </div>
@@ -32,33 +32,33 @@
         <div class="info-sub-container">    
           <p class="info-title">Description </p>
           <div class="task-container">
-            <p><%= task.description %></p>
+            <p class="task-text"><%= task.description %></p>
           </div>
         </div>
         <div class="info-sub-container">  
           <p class="info-title">Location</p>
           <div class="task-container">
-            <p><%= task.location %></p>
+            <p class="task-text"><%= task.location %></p>
           </div>
         </div>
         <div class="info-sub-container">   
           <p class="info-title">Task Type: </p>
           <div class="task-container bubble">
             <span class="color-bubble <%= task.type %>"></span>
-            <p><%= task.type %></p>
+            <p class="task-text"><%= task.type %></p>
             <div></div>
           </div>
         </div>
         <div class="info-sub-container"> 
           <p class="info-title">Due Date</p>
           <div class="task-container">
-            <p><%= new Date(task.dueDate).toLocaleDateString("en-US", { dateStyle: "medium" }) %></p>
+            <p class="task-text"><%= new Date(task.dueDate).toLocaleDateString("en-US", { dateStyle: "medium" }) %></p>
           </div>
         </div>
         <div class="info-sub-container"> 
           <p class="info-title">Created</p>
           <div class="task-container">
-            <p><%= new Date(task.created).toLocaleDateString("en-US", { dateStyle: "medium" }) %></p>
+            <p class="task-text"><%= new Date(task.created).toLocaleDateString("en-US", { dateStyle: "medium" }) %></p>
           </div>
         </div>
     </div>

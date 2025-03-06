@@ -6,7 +6,11 @@ body {
   font-family: "Open Sans", Arial, Helvetica, sans-serif;
   font-size: 1rem; /* Base font size relative to the root */
   line-height: 1.6;
-  background-color: rgb(216, 216, 216);
+  background-image: linear-gradient(
+    90deg,
+    rgba(38, 39, 98, 0.535),
+    rgba(23, 56, 111, 0.518)
+  );
   color: #404040;
   display: flex;
   flex-direction: column;

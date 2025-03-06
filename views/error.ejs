@@ -21,19 +21,21 @@
         <a href="addTask"><i class="bi bi-clipboard2-plus"></i></a>
         <div></div>
       </div>
-     
+
       <div class="task-list-container">
         <h4>The following errors have prevented this task from being added.</h4>
-        
+
         <div class="card-list">
-          <% errorList.forEach(error => { %> 
-            <p class="card-list-item title"><%= error %> </p>
+          <% errorList.forEach(error => { %>
+          <p class="card-list-item title"><%= error %></p>
           <% }) %>
-        </div> 
-        
+        </div>
+
         <h4>You must correct these errors before this task can be added.</h4>
-        <button onclick="history.back()">Return to Form</button>  
-      </div> 
+        <button class="submit-btn" onclick="history.back()">
+          Return to Form
+        </button>
+      </div>
     </div>
   </body>
 </html>

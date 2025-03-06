@@ -37,6 +37,11 @@ p {
   font-weight: 500;
 }
 
+.task-text {
+  font-size: 18px;
+  font-weight: 500;
+}
+
 .color-bubble {
   margin: 0;
   padding: 7px;
