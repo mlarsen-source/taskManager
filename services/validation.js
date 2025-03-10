@@ -20,8 +20,11 @@ export function validateForm(data, options = {}) {
     const dueDate = new Date(data.dueDate);
     
     // Ensure due date is in the future
-    if (dueDate < today) {
-      errors.push("Due Date cannot be in the past.");
+    if (options.checkDueDate) {
+      const today = new Date();
+      if (dueDate < today) {
+        errors.push("Due Date cannot be in the past.");
+      }
     }
   }
 
