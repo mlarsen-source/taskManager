@@ -42,6 +42,26 @@ p {
   font-weight: 500;
 }
 
+.complete-btn {
+  background-color: #00a608;
+  border-radius: 7px;
+  border-style: none;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  height: 30px;
+  width: 100%;
+  margin: 0;
+  padding: 5px 15px;
+  transition: 500ms;
+}
+
+.complete-btn:hover,
+.complete-btn:focus {
+  background-color: #559b59;
+}
+
 .color-bubble {
   margin: 0;
   padding: 7px;
