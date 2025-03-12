@@ -15,19 +15,19 @@ The **Task Manager** is a web-based application designed to help users organize 
 
 
 ## Usage
--Click "Add Task" to create a new task.
--Click on a task title to view its details.
--Use history option to view a list of all previously completed tasks. 
--Use the edit option to update task information.
--Mark tasks as completed or delete them when no longer needed.
+- Click "Add Task" to create a new task.
+- Click on a task title to view its details.
+- Use history option to view a list of all previously completed tasks. 
+- Use the edit option to update task information.
+- Mark tasks as completed or delete them when no longer needed.
 
 
 ## Technologies Used
--Node.js & Express.js (Server-side framework)
--EJS (Templating engine)
--Bootstrap Icons (UI Enhancements)
--JavaScript, HTML, CSS (Frontend development)
--MariaDB (Database)
+- Node.js & Express.js (Server-side framework)
+- EJS (Templating engine)
+- Bootstrap Icons (UI Enhancements)
+- JavaScript, HTML, CSS (Frontend development)
+- MariaDB (Database)
 
 
 ## Authors 
