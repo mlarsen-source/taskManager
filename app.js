@@ -53,8 +53,7 @@ app.get("/", async (req, res) => {
         WHEN 'High' THEN 1
         WHEN 'Medium' THEN 2
         WHEN 'Low' THEN 3
-      END ASC
-    `);
+      END ASC`);
 
     // release connection
     conn.release();
@@ -65,6 +64,26 @@ app.get("/", async (req, res) => {
     res.status(500).send("An error occurred while fetching tasks.");
   }
 });
+
+
+// define completed task history route
+app.get("/history", async (req, res) => {
+  try {
+    const conn = await connect();
+
+    // retrieve completed tasks, sorted by completion date (most recently completed first)
+    const completedList = await conn.query(`SELECT * FROM tasks WHERE view = 0 ORDER BY completedDate DESC`);
+
+    // release connection
+    conn.release();
+    res.render("history", { completedList });
+  } catch (error) {
+    console.error("Database query error:", error);
+    conn.release();
+    res.status(500).send("An error occurred while fetching tasks.");
+  }
+});
+
 
 // define addTask route
 app.get("/addTask", (req, res) => {
@@ -198,8 +217,11 @@ app.post("/updateTask/:taskId", async (req, res) => {
     // set view to false if status is completed
     const viewValue = req.body.status === "Completed" ? false : true;
 
+    // set completedDate to the current timestamp only when status is changed to "Completed"
+    const completedDate = req.body.status === "Completed" ? new Date() : null;
+
     await conn.query(
-      `UPDATE tasks SET title=?, dueDate=?, location=?, description=?, priority=?, type=?, status=?, view=? WHERE taskId=?`,
+      `UPDATE tasks SET title=?, dueDate=?, location=?, description=?, priority=?, type=?, status=?, view=?, completedDate=? WHERE taskId=?`,
       [
         req.body.title,
         req.body.dueDate,
@@ -209,6 +231,7 @@ app.post("/updateTask/:taskId", async (req, res) => {
         req.body.type,
         req.body.status,
         viewValue,
+        completedDate,
         taskId,
       ]
     );

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/default.css" />
     <link rel="stylesheet" href="/css/home.css" />
-    <link rel="icon" type="image/png" href="/images/home.png" />
+    <link rel="icon" type="image/png" href="/images/complete.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,29 +16,27 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
     />
-    <title>Task Manager</title>
+    <title>Completed Task History</title>
   </head>
-
   <body>
     <main>
       <div class="card-container">
         <div class="card-nav">
-          <a href="history"><i class="bi bi-check-circle"></i></a>
-          <h1 class="card-header">Task Manager</h1>
-          <a href="addTask"><i class="bi bi-clipboard2-plus"></i></a>
+          <a href="/"><i class="bi bi-house-door"></i></a>
+          <h1 class="card-header">Completed Tasks</h1>
         </div>
-
-        <!-- Dynamically generate task title links with priority level where task view key value is true -->
+      
+        <!-- Dynamically generate completed date and task title links -->
 
         <div class="task-list-container">
-          <% taskList.forEach(task => { %> <% if (task.view) { %>
+          <% completedList.forEach(task => { %>
           <a href="/viewTask/<%= task.taskId %>" class="card-link">
             <div class="card-list">
-              <span class="card-list-item <%= task.priority %>"></span>
-              <p class="card-list-item title"><%= task.title %></p>
+              <p class="card-list-item"><%= new Date(task.completedDate).toLocaleDateString("en-US", { dateStyle: "medium" }) %></p>
+              <p class="card-list-item"><%= task.title %></p>
             </div>
           </a>
-          <% } %> <% }); %>
+          <% }); %>
         </div>
       </div>
     </main>
