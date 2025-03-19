@@ -1,4 +1,3 @@
-// import libraries
 import express from "express";
 import colors from "colors";
 import mariadb from "mariadb";
@@ -55,7 +54,6 @@ app.get("/", async (req, res) => {
         WHEN 'Low' THEN 3
       END ASC`);
 
-    // release connection
     conn.release();
     res.render("home", { taskList });
   } catch (error) {
@@ -65,16 +63,16 @@ app.get("/", async (req, res) => {
   }
 });
 
-
 // define completed task history route
 app.get("/history", async (req, res) => {
   try {
     const conn = await connect();
 
     // retrieve completed tasks, sorted by completion date (most recently completed first)
-    const completedList = await conn.query(`SELECT * FROM tasks WHERE view = 0 ORDER BY completedDate DESC`);
+    const completedList = await conn.query(
+      `SELECT * FROM tasks WHERE view = 0 ORDER BY completedDate DESC`
+    );
 
-    // release connection
     conn.release();
     res.render("history", { completedList });
   } catch (error) {
@@ -83,7 +81,6 @@ app.get("/history", async (req, res) => {
     res.status(500).send("An error occurred while fetching tasks.");
   }
 });
-
 
 // define addTask route
 app.get("/addTask", (req, res) => {
@@ -129,7 +126,6 @@ app.post("/createTask", async (req, res) => {
       ]
     );
 
-    // release connection
     conn.release();
     res.redirect("/");
   } catch (error) {
@@ -151,7 +147,6 @@ app.get("/editTask/:taskId", async (req, res) => {
     // fix due dat e format error between mariaDB and js
     task[0].dueDate = task[0].dueDate.toISOString().split("T")[0];
 
-    // release connection
     conn.release();
     res.render("editTask", { task: task[0] });
   } catch (error) {
@@ -170,7 +165,6 @@ app.get("/viewTask/:taskId", async (req, res) => {
       taskId,
     ]);
 
-    // release connection
     conn.release();
     res.render("viewTask", { task: task[0] });
   } catch (error) {
@@ -241,6 +235,25 @@ app.post("/updateTask/:taskId", async (req, res) => {
   } catch (error) {
     console.error("Database query error:", error);
     conn.release();
+    res.status(500).send("An error occurred while updating the task.");
+  }
+});
+
+app.post(`/viewTask/complete/:taskId`, async (req, res) => {
+  try {
+    const conn = await connect();
+    const { taskId } = req.params;
+
+    await conn.query(
+      `UPDATE tasks SET status = 'Completed', view = '0' WHERE taskId = ?`,
+      [taskId]
+    );
+    console.log(taskId);
+
+    conn.release();
+    res.redirect(`/`);
+  } catch (error) {
+    console.error("Database query error:", error);
     res.status(500).send("An error occurred while updating the task.");
   }
 });

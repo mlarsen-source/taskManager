@@ -24,15 +24,19 @@
         <div class="card-nav">
           <a href="/"><i class="bi bi-house-door"></i></a>
           <h1 class="card-header">Completed Tasks</h1>
+          <div></div>
         </div>
-      
+
         <!-- Dynamically generate completed date and task title links -->
 
         <div class="task-list-container">
           <% completedList.forEach(task => { %>
           <a href="/viewTask/<%= task.taskId %>" class="card-link">
             <div class="card-list">
-              <p class="card-list-item"><%= new Date(task.completedDate).toLocaleDateString("en-US", { dateStyle: "medium" }) %></p>
+              <p class="card-list-item">
+                <%= new Date(task.completedDate).toLocaleDateString("en-US", {
+                dateStyle: "medium" }) %>
+              </p>
               <p class="card-list-item"><%= task.title %></p>
             </div>
           </a>

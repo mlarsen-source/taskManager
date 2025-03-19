@@ -140,3 +140,21 @@ body {
   cursor: pointer;
   color: #494949;
 }
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
