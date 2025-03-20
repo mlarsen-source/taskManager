@@ -245,8 +245,8 @@ app.post(`/viewTask/complete/:taskId`, async (req, res) => {
     const { taskId } = req.params;
 
     await conn.query(
-      `UPDATE tasks SET status = 'Completed', view = '0' WHERE taskId = ?`,
-      [taskId]
+      `UPDATE tasks SET status = 'Completed', view = '0', completedDate = ? WHERE taskId = ?`,
+      [new Date(), taskId]
     );
     console.log(taskId);
 
