@@ -84,7 +84,7 @@ app.get("/history", async (req, res) => {
 
 // define addTask route
 app.get("/addTask", (req, res) => {
-  res.render("addtask");
+  res.render("addTask");
 });
 
 // define createTask route insert form fields into database
